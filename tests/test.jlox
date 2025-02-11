@@ -1,0 +1,5 @@
+var variable = 1 + 2 - 3 == 9 / 9 ;
+
+print variable ;
+
+// we will get only tokens printed
