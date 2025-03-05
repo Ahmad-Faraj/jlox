@@ -63,10 +63,8 @@ public class Lox {
     }
 
     // only responsilbe for displaying not detecting
-    private static void report(int line, String where,
-            String message) {
-        System.err.println(
-                "[line " + line + "] Error" + where + ": " + message);
+    private static void report(int line, String where, String message) {
+        System.err.println("[line " + line + "] Error" + where + ": " + message);
         hadError = true;
     }
 
