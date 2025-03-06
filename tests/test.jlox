@@ -1,13 +1,3 @@
-var variable = 1 + 2 - 3 == 9 / 9 ;
-
-print variable ;
-
-// we will get only tokens printed
-
-
-var wow = 0;
-
-/*    this is a
-      nested
-      comment
-*/
+print "Finnnnnaly it worked :D";
+print false;
+print 1 + 2 * 3;
