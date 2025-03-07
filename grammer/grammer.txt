@@ -7,11 +7,15 @@ unary → ( "!" | "-" ) unary | primary ;
 primary → "true" | "false" | "nil" | NUMBER | STRING | "(" expression ")" | IDENTIFIER ;
 program → statement* EOF ;
 program → declaration* EOF ;
-statement → exprStmt | printStmt | block ;
+statement → exprStmt | ifStmt | printStmt | whileStmt | block ;
 exprStmt → expression ";" ;
 printStmt → "print" expression ";" ;
+ifStmt → "if" "(" expression ")" statement ( "else" statement )? ;
+whileStmt → "while" "(" expression ")" statement 
 declaration → varDecl | statement ;
 varDecl → "var" IDENTIFIER ( "=" expression )? ";" ;
 expression → assignment ;
-assignment → IDENTIFIER "=" assignment | equality ;
+assignment → IDENTIFIER "=" assignment | logic_or ;
+logic_or → logic_and ( "or" logic_and )* ;
+logic_and → equality ( "and" equality )* ;
 block → "{" declaration* "}" ;
