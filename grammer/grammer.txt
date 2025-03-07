@@ -13,3 +13,5 @@ program → declaration* EOF ;
 declaration → varDecl | statement ;
 statement → exprStmt | printStmt ;
 varDecl → "var" IDENTIFIER ( "=" expression )? ";" ;
+expression → assignment ;
+assignment → IDENTIFIER "=" assignment | equality ;
