@@ -7,4 +7,6 @@ class RuntimeError extends RuntimeException {
         super(message);
         this.token = token;
     }
+
+    // TODO:. Instead of implicitly initializing variables to nil, make it a runtime error
 }

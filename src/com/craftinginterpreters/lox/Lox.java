@@ -34,6 +34,7 @@ public class Lox {
             System.exit(70);
     }
 
+    // TODO: Add support to the REPL to let users type in both statements and expressions.
     private static void runPrompt() throws IOException {
         InputStreamReader input = new InputStreamReader(System.in);
         BufferedReader reader = new BufferedReader(input);
