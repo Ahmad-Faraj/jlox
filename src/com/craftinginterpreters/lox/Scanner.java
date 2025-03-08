@@ -32,6 +32,8 @@ class Scanner {
         keywords.put("true", TRUE);
         keywords.put("var", VAR);
         keywords.put("while", WHILE);
+        keywords.put("break", BREAK);
+        keywords.put("continue", CONTINUE);
     }
 
     Scanner(String source) {
@@ -152,7 +154,7 @@ class Scanner {
             while (isDigit(peek()))
                 advance();
         }
-        addToken(NUMBER,Double.parseDouble(source.substring(start, current)));
+        addToken(NUMBER, Double.parseDouble(source.substring(start, current)));
     }
 
     private void string() {

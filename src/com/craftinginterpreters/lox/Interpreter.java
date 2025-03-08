@@ -6,6 +6,12 @@ class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
 
     private Environment environment = new Environment();
 
+    private static class BreakException extends RuntimeException {
+    }
+
+    private static class ContinueException extends RuntimeException {
+    }
+
     void interpret(List<Stmt> statements) {
         try {
             for (Stmt statement : statements) {
@@ -202,11 +208,31 @@ class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
         return null;
     }
 
+    @Override
+    public Void visitBreakStmt(Stmt.Break stmt) {
+        throw new BreakException();
+    }
+
+    @Override
+    public Void visitContinueStmt(Stmt.Continue stmt) {
+        throw new ContinueException();
+    }
+
     // TODO: Tail Call Optimization (TCO)
     @Override
     public Void visitWhileStmt(Stmt.While stmt) {
-        while (isTruthy(evaluate(stmt.condition))) {
-            execute(stmt.body);
+        try {
+            while (isTruthy(evaluate(stmt.condition))) {
+                try {
+                    execute(stmt.body);
+                } catch (ContinueException e) {
+                    // Just continue the loop
+                } catch (BreakException e) {
+                    break;
+                }
+            }
+        } catch (BreakException e) {
+            // Exit the loop
         }
         return null;
     }
