@@ -1,0 +1,118 @@
+// Variables
+var radius = 25;
+var PI = 3.14159;
+var area = PI * radius * radius;
+print "The Area of the circle is ";
+print area;
+
+print "----------------";
+
+// Arithmetic operations & String operations
+print "Ahmed" + " " + "Faraj" + " " + "stats :";
+var iq = 70 * 2;
+var atk = 100 + 15;
+var def = 150 / 10;
+var intel = 752 - 330;
+
+print iq;
+print atk;
+print def;
+print intel;
+
+print "----------------";
+
+// IF conditions
+
+var x = 0;
+var y = 0;
+
+if (x < 5 and y > 10) {
+    print "x is tiny, y is towering!";
+} else {
+    if (x == 5 or y == 0) {
+        if (x == 5) print "x is the legendary 5.";
+        else print "y has entered the void.";
+    } else {
+        print "This feels... oddly specific.";
+    }
+}
+
+print "----------------";
+
+// Loops
+var i = 0;
+while (true) {
+   print i;
+   i = i + 1;
+   if (i == 3) break;
+}
+
+fun is_even(num)
+{
+   if(num <= 0)
+   {
+      return num == 0;
+   }
+   return is_even(num-2);
+}
+
+var n = 100;
+var total = 50;
+for(var i = 0 ; i < n ; i = i + 3) {
+   if(i > total)
+   {
+      print "terminated";
+      print i;
+      break;
+   }
+   if(!is_even(i))
+   {
+      print "skipped";
+      i = i + 1;
+      print i;
+      continue;
+   }
+   print i;
+}
+
+print "----------------";
+
+// Normal Function
+fun sayHi(first, last) {
+   print "Hi, " + first + " " + last + "!";
+}
+sayHi("Ahmed", "Faraj");
+
+print "----------------";
+
+// Fibonacci Function 
+fun fib(n) {
+   if (n <= 1) return n;
+   return fib(n - 2) + fib(n - 1);
+}
+
+for (var i = 0; i < 20; i = i + 1) {
+   print fib(i);
+}
+
+print "----------------";
+
+// Scoping and Closures
+fun makeCounter() {
+   var i = 0;
+   fun count() {
+   i = i + 1;
+   print i;
+   }
+   return count;
+}
+var counter = makeCounter();
+counter(); // "1".
+counter(); // "2".
+
+fun scope(a) {
+ var a = "local";
+ print a;
+}
+
+scope(5);
