@@ -18,12 +18,13 @@ public class Lox {
             System.out.println("Usage: jlox [script]");
             System.exit(64);
         } else if (args.length == 1) {
-            runFile(args[0]); // run EXE
+            runFile(args[0]);
         } else {
-            runPrompt(); // run REPL
+            runPrompt(); // REPL
         }
     }
 
+    // TODO: add bash script to run all test files at once
     private static void runFile(String path) throws IOException {
         byte[] bytes = Files.readAllBytes(Paths.get(path));
         run(new String(bytes, Charset.defaultCharset()));

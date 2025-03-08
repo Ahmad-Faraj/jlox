@@ -14,3 +14,8 @@ for(var i = 0 ; i < n ; i = i + 1) {
    }
    print i;
 }
+
+fun sayHi(first, last) {
+ print "Hi, " + first + " " + last + "!";
+}
+sayHi("Dear", "Reader");

@@ -21,24 +21,24 @@ public class GenerateAst {
                 "Literal : Object value",
                 "Logical : Expr left, Token operator, Expr right",
                 "Unary : Token operator, Expr right",
-                "Variable : Token name"
-        ));
+                "Variable : Token name"));
 
         defineAst(outputDir, "Stmt", Arrays.asList(
                 "Block : List<Stmt> statements",
                 "Expression : Expr expression",
+                "Function : Token name, List<Token> params," + " List<Stmt> body",
                 "If : Expr condition, Stmt thenBranch, Stmt elseBranch",
                 "Print : Expr expression",
                 "Var : Token name, Expr initializer",
                 "While : Expr condition, Stmt body",
                 "Break :",
-                "Continue :"
-        ));
+                "Continue :"));
     }
 
     private static void defineAst(String outputDir, String baseName, List<String> types) throws IOException {
         String path = outputDir + "/" + baseName + ".java";
-        PrintWriter writer = new PrintWriter(new OutputStreamWriter(new FileOutputStream(path), StandardCharsets.UTF_8));
+        PrintWriter writer = new PrintWriter(
+                new OutputStreamWriter(new FileOutputStream(path), StandardCharsets.UTF_8));
 
         writer.println("package com.craftinginterpreters.lox;");
         writer.println();

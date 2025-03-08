@@ -14,7 +14,7 @@ exprStmt → expression ";" ;
 printStmt → "print" expression ";" ;
 ifStmt → "if" "(" expression ")" statement ( "else" statement )? ;
 whileStmt → "while" "(" expression ")" statement 
-declaration → varDecl | statement ;
+declaration → funDecl | varDecl | statement ;
 varDecl → "var" IDENTIFIER ( "=" expression )? ";" ;
 expression → assignment ;
 assignment → IDENTIFIER "=" assignment | logic_or ;
@@ -24,3 +24,6 @@ forStmt → "for" "(" ( varDecl | exprStmt | ";" ) expression? ";" expression? "
 block → "{" declaration* "}" ;
 breakStmt → "break" ";" ;
 continueStmt → "continue" ";" ;
+funDecl → "fun" function ;
+function → IDENTIFIER "(" parameters? ")" block ;
+parameters → IDENTIFIER ( "," IDENTIFIER )* ;
