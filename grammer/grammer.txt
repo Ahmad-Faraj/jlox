@@ -9,9 +9,10 @@ primary → "true" | "false" | "nil" | NUMBER | STRING | "(" expression ")" | ID
 arguments → expression ( "," expression )* ;
 program → statement* EOF ;
 program → declaration* EOF ;
-statement → exprStmt | forStmt | ifStmt | printStmt | whileStmt | breakStmt | continueStmt | block ;
+statement → exprStmt | returnStmt | forStmt | ifStmt | printStmt | whileStmt | breakStmt | continueStmt | block ;
 exprStmt → expression ";" ;
 printStmt → "print" expression ";" ;
+returnStmt → "return" expression? ";" ;
 ifStmt → "if" "(" expression ")" statement ( "else" statement )? ;
 whileStmt → "while" "(" expression ")" statement 
 declaration → funDecl | varDecl | statement ;
