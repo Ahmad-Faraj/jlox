@@ -1,49 +1,28 @@
-var i = 0;
-while (true) {
-    print i;
-    i = i + 1;
-    if (i == 3) break;
-}
+var a = 10;  
+var b = 5;  
+print "Sum:"; print a + b;  
+print "Product:"; print a * b;  
 
-var n = 100;
-var total = 50;
-for(var i = 0 ; i < n ; i = i + 1) {
-   if(i > total)
-   {
-      break;
-   }
-   print i;
-}
+var name = "from JLox";  
+print "Hello, I'm Ahmed Faraj"; print name;  
 
-fun sayHi(first, last) {
- print "Hi, " + first + " " + last + "!";
-}
-sayHi("Dear", "Reader");
+var x = 3;  
+if (x > 5) print "Big";  
+else print "Small";  
 
-fun fib(n) {
- if (n <= 1) return n;
- return fib(n - 2) + fib(n - 1);
-}
-for (var i = 0; i < 20; i = i + 1) {
- print fib(i);
-}
+var i = 0;  
+while (i < 5) { print i; i = i + 1; }  
 
+for (var j = 1; j <= 10; j = j + 1) print j;  
 
-fun makeCounter() {
- var i = 0;
- fun count() {
- i = i + 1;
- print i;
- }
- return count;
-}
-var counter = makeCounter();
-counter(); // "1".
-counter(); // "2".
+fun greet(who) { print "Hi"; print who; }  
+greet("World");  
 
-fun scope(a) {
- var a = "local";
- print a;
-}
+fun square(n) { return n * n; }  
+print "4^2 ="; print square(4);  
 
-scope(5);
+fun count(n) {  
+    var i = 1;  
+    while (i <= n) { print i; i = i + 1; }  
+}  
+count(5);
