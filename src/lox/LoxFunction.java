@@ -6,7 +6,7 @@ class LoxFunction implements LoxCallable {
     private final Stmt.Function declaration;
     private final Environment closure;
     // TODO: The local vars overrides the arguments if they have the same name
-    // should that be an error or should that be the normal behaviour ? I will decide later
+    // should that be an error or should that be the normal behaviour ? i guess it's ok as it is
 
     LoxFunction(Stmt.Function declaration, Environment closure) {
         this.closure = closure;

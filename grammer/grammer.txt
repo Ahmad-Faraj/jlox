@@ -29,7 +29,7 @@ term → factor ( ( "-" | "+" ) factor )* ;
 factor → unary ( ( "/" | "*" ) unary )* ;
 unary → ( "!" | "-" ) unary | call ;
 call → primary ( "(" arguments? ")" | "." IDENTIFIER )* ;
-primary → "true" | "false" | "nil" | NUMBER | STRING | "(" expression ")" | IDENTIFIER ;
+primary → "true" | "false" | "nil" | "nox" | NUMBER | STRING | "(" expression ")" | IDENTIFIER ;
 
 arguments → expression ( "," expression )* ;
 

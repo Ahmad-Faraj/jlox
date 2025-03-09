@@ -9,4 +9,5 @@ class RuntimeError extends RuntimeException {
     }
 
     // TODO: Instead of implicitly initializing variables to nil, make it a runtime error
+    // let's not call a bug but a feature XD
 }

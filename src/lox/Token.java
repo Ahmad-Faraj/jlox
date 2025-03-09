@@ -1,5 +1,6 @@
 package lox;
 
+// TODO : Later we will need more complex tokens
 class Token {
     final TokenType type;
     final String lexeme;

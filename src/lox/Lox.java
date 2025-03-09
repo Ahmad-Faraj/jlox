@@ -24,7 +24,7 @@ public class Lox {
         }
     }
 
-    // TODO: add bash script to run all test files at once
+    // TODO: add bash script to run all test files at once ( explained in the Documentation )
     private static void runFile(String path) throws IOException {
         byte[] bytes = Files.readAllBytes(Paths.get(path));
         run(new String(bytes, Charset.defaultCharset()));

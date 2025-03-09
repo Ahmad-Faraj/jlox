@@ -3,6 +3,7 @@ package lox;
 import java.util.HashMap;
 import java.util.Map;
 
+// TODO : Fix Closure Scoping Bug (Explained better in the issue)
 class Environment {
     final Environment enclosing;
     private final Map<String, Object> values = new HashMap<>();

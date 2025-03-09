@@ -301,6 +301,8 @@ class Parser {
             return new Expr.Literal(true);
         if (match(NIL))
             return new Expr.Literal(null);
+        if (match(NOX))
+            return new Expr.Literal(Nox.INSTANCE);
         if (match(NUMBER, STRING)) {
             return new Expr.Literal(previous().literal);
         }

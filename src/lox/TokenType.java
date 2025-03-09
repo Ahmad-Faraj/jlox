@@ -17,13 +17,7 @@ enum TokenType {
     IDENTIFIER, STRING, NUMBER,
 
     // Keywords.
-    AND, CLASS, ELSE, FALSE, FUN, FOR, IF, NIL, OR,
+    AND, CLASS, ELSE, FALSE, FUN, FOR, IF, NIL, NOX, OR,
     PRINT, RETURN, SUPER, THIS, TRUE, VAR, WHILE, BREAK, CONTINUE,
     EOF
-
-    // TODO: Add Contradiction (⊥)
-    // What is a Contradiction (⊥)?
-    // A contradiction occurs when a statement must be both true and false
-    // at the same time, in a way that breaks logic.
-    // we will call it NOX
 }

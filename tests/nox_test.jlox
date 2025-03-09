@@ -1,0 +1,61 @@
+// =====================
+// Testing NOX Literal and Propagation
+// =====================
+print "Testing nox literal:";
+print nox;  // Expected: "nox"
+
+print "Testing arithmetic propagation with nox:";
+var a = nox + 5;
+print a;  // Expected: nox
+var b = 3 * nox;
+print b;  // Expected: nox
+
+print "Testing logical operations with nox:";
+var c = nox and true;
+print c;  // Expected: nox
+var d = false or nox;
+print d;  // Expected: nox
+
+print "Testing function returning nox:";
+fun returnNox() {
+   return nox;
+}
+print returnNox();  // Expected: nox
+
+print "----------------";
+
+// =====================
+// IF Conditions: Testing NOX behavior
+// =====================
+
+// Test 1: IF with no else: condition is nox => nothing should execute.
+print "Testing if (nox) { ... } with no else:";
+if (nox) {
+   print "This should NOT print.";
+}
+print "Finished if (nox) without else.";
+
+print "----------------";
+
+// Test 2: IF with both branches: condition is nox => both branches execute.
+print "Testing if (nox) { ... } else { ... } (expecting BOTH branches):";
+if (nox) {
+   print "Then branch executed (nox).";
+} else {
+   print "Else branch executed (nox).";
+}
+
+print "----------------";
+
+// =====================
+// Loops: Testing NOX in loop condition
+// =====================
+print "Testing while loop with nox condition (should terminate immediately):";
+var j = 0;
+while (nox) {
+   print "This should not print.";
+   j = j + 1;
+}
+print "While loop terminated immediately.";
+
+print "----------------";

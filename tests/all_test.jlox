@@ -1,14 +1,24 @@
-// Variables
+// =============================
+// Variables: Circle Area Example
+// =============================
 var radius = 25;
 var PI = 3.14159;
 var area = PI * radius * radius;
-print "The Area of the circle is ";
+
+print "==============================";
+print "The Area of the Circle is:";
+print "------------------------------";
 print area;
 
-print "----------------";
+print "==============================";
 
-// Arithmetic operations & String operations
-print "Ahmed" + " " + "Faraj" + " " + "stats :";
+print "------------------------------";
+
+// ============================
+// Arithmetic & String Operations
+// ============================
+print "Ahmed Faraj Stats:";
+print "------------------------------";
 var iq = 70 * 2;
 var atk = 100 + 15;
 var def = 150 / 10;
@@ -19,54 +29,69 @@ print atk;
 print def;
 print intel;
 
-print "----------------";
+print "==============================";
 
-// IF conditions
+print "------------------------------";
+
+// =====================
+// IF Conditions
+// =====================
+print "Testing IF Conditions:";
+print "------------------------------";
 
 var x = 0;
 var y = 0;
 
 if (x < 5 and y > 10) {
-    print "x is tiny, y is towering!";
+   print "x is tiny, y is towering!";
 } else {
-    if (x == 5 or y == 0) {
-        if (x == 5) print "x is the legendary 5.";
-        else print "y has entered the void.";
-    } else {
-        print "This feels... oddly specific.";
-    }
+   if (x == 5 or y == 0) {
+      if (x == 5) print "x is the legendary 5.";
+      else print "y has entered the void.";
+   } else {
+      print "This feels... oddly specific.";
+   }
 }
 
-print "----------------";
+print "==============================";
 
+print "------------------------------";
+
+// =====================
 // Loops
+// =====================
+print "Testing Loops:";
+print "------------------------------";
+
+// Simple While Loop
 var i = 0;
+print "While Loop (stopping at 3):";
 while (true) {
    print i;
    i = i + 1;
    if (i == 3) break;
 }
 
-fun is_even(num)
-{
-   if(num <= 0)
-   {
+print "==============================";
+
+// For Loop with Even Check
+fun is_even(num) {
+   if (num <= 0) {
       return num == 0;
    }
-   return is_even(num-2);
+   return is_even(num - 2);
 }
 
 var n = 100;
 var total = 50;
+print "For Loop (skipping odd numbers):";
 for(var i = 0 ; i < n ; i = i + 3) {
-   if(i > total)
-   {
+   if(i > total) {
       print "terminated";
       print i;
       break;
    }
-   if(!is_even(i))
-   {
+   if(!is_even(i)) {
       print "skipped";
       i = i + 1;
       print i;
@@ -75,17 +100,31 @@ for(var i = 0 ; i < n ; i = i + 3) {
    print i;
 }
 
-print "----------------";
+print "==============================";
 
+print "------------------------------";
+
+// =====================
 // Normal Function
+// =====================
+print "Testing Normal Function:";
+print "------------------------------";
+
 fun sayHi(first, last) {
    print "Hi, " + first + " " + last + "!";
 }
 sayHi("Ahmed", "Faraj");
 
-print "----------------";
+print "==============================";
 
-// Fibonacci Function 
+print "------------------------------";
+
+// =====================
+// Fibonacci Function
+// =====================
+print "Testing Fibonacci Function:";
+print "------------------------------";
+
 fun fib(n) {
    if (n <= 1) return n;
    return fib(n - 2) + fib(n - 1);
@@ -95,24 +134,34 @@ for (var i = 0; i < 20; i = i + 1) {
    print fib(i);
 }
 
-print "----------------";
+print "==============================";
 
+print "------------------------------";
+
+// =====================
 // Scoping and Closures
+// =====================
+print "Testing Scoping & Closures:";
+print "------------------------------";
+
 fun makeCounter() {
    var i = 0;
    fun count() {
-   i = i + 1;
-   print i;
+      i = i + 1;
+      print i;
    }
    return count;
 }
+
 var counter = makeCounter();
-counter(); // "1".
-counter(); // "2".
+counter(); // Expected: 1
+counter(); // Expected: 2
 
 fun scope(a) {
- var a = "local";
- print a;
+   var a = "local";
+   print a;
 }
 
-scope(5);
+scope(5); // Expected: "local"
+
+print "==============================";

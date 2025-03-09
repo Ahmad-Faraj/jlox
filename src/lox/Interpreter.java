@@ -51,14 +51,16 @@ class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
 
     public Object visitUnaryExpr(Expr.Unary expr) {
         Object right = evaluate(expr.right);
+        if (right instanceof Nox)
+            return Nox.INSTANCE;
         switch (expr.operator.type) {
             case BANG:
+                // Optionally: if (right instanceof Nox) return Nox.INSTANCE;
                 return !isTruthy(right);
             case MINUS:
                 checkNumberOperand(expr.operator, right);
                 return -(double) right;
         }
-        // Unreachable.
         return null;
     }
 
@@ -81,6 +83,8 @@ class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
     @Override
     public Object visitLogicalExpr(Expr.Logical expr) {
         Object left = evaluate(expr.left);
+        if (left instanceof Nox)
+            return Nox.INSTANCE;
         if (expr.operator.type == TokenType.OR) {
             if (isTruthy(left))
                 return left;
@@ -88,7 +92,8 @@ class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
             if (!isTruthy(left))
                 return left;
         }
-        return evaluate(expr.right);
+        Object right = evaluate(expr.right);
+        return right;
     }
 
     private void checkNumberOperands(Token operator,
@@ -100,6 +105,8 @@ class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
     }
 
     private boolean isTruthy(Object object) {
+        if (object instanceof Nox)
+            return false;
         if (object == null)
             return false;
         if (object instanceof Boolean)
@@ -116,6 +123,8 @@ class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
     }
 
     private String stringify(Object object) {
+        if (object instanceof Nox)
+            return "nox";
         if (object == null)
             return "nil";
         if (object instanceof Double) {
@@ -152,6 +161,10 @@ class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
     public Object visitBinaryExpr(Expr.Binary expr) {
         Object left = evaluate(expr.left);
         Object right = evaluate(expr.right);
+        // Propagate nox if present.
+        if (left instanceof Nox || right instanceof Nox) {
+            return Nox.INSTANCE;
+        }
         switch (expr.operator.type) {
             case BANG_EQUAL:
                 return !isEqual(left, right);
@@ -238,7 +251,15 @@ class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
 
     @Override
     public Void visitIfStmt(Stmt.If stmt) {
-        if (isTruthy(evaluate(stmt.condition))) {
+        Object conditionValue = evaluate(stmt.condition);
+        if (conditionValue == Nox.INSTANCE) {
+            if (stmt.elseBranch != null) {
+                // Execute both branches.
+                execute(stmt.thenBranch);
+                execute(stmt.elseBranch);
+            }
+            // No else: do nothing.
+        } else if (isTruthy(conditionValue)) {
             execute(stmt.thenBranch);
         } else if (stmt.elseBranch != null) {
             execute(stmt.elseBranch);
