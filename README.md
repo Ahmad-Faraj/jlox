@@ -214,12 +214,12 @@ print clock(); // Prints current time in seconds
 ## How to Build and Run
 ### 0. Prerequisites
 - Java Development Kit (JDK) 8 or higher
+- Makefile
 
 ### 1. Clone the repository and build using Make:
 ```bash
 git clone https://github.com/Ahmad-Faraj/JLOX-Interpreter.git
 cd jlox
-make compile
 ```
 
 ### 2. Compile the JLOX Source Code
@@ -241,6 +241,28 @@ JLOX uses a tool to generate AST classes from grammar definitions.
 ```bash
 javac -d bin src/tool/GenerateAst.java
 java -cp bin tool.GenerateAst src/lox
+```
+
+## Simplified method
+
+### Compile the project
+```bash
+make
+```
+
+### Run JLOX (REPL mode)
+```bash
+make run
+```
+
+### Generate AST classes
+```bash
+make tool
+```
+
+### Clean compiled files
+```bash
+make clean
 ```
 
 ---
