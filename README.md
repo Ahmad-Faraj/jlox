@@ -270,7 +270,7 @@ make clean
 ## Contributing
 Contributions are welcome! Feel free to fork the repository and submit pull requests.
 
-### Star the Repository ⭐
+### Star the Repository
 If you find JLOX useful, please consider starring the repository!
 
 ---
