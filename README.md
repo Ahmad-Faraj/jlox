@@ -218,7 +218,7 @@ print clock(); // Prints current time in seconds
 
 ### 1. Clone the repository and build using Make:
 ```bash
-git clone https://github.com/Ahmad-Faraj/JLOX-Interpreter.git
+git clone https://github.com/Ahmad-Faraj/jlox.git
 cd jlox
 ```
 
